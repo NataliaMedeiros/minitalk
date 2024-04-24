@@ -1,0 +1,8 @@
+Minitalk
+
+The project's goal is to be able to send messagens between two process (server and client) user serie of signals. In order to do it is necessary develop the minitalk protocol.
+
+Before to starting the development is necessary to understand how the mensagem will be send. So when we pass a string, it cannot be send just like that, it is necessary to convert each character of the string int its value on ASCII table and that to the coorespondent binary value. And when we have the string converted to binary it will be send bit a bit, so each character will send 8 signals.
+
+signal -> signal is a message send to a process to indicate that an event has occured or to ask for a specific action.
+PID -> in order to send a signal a PID is necessary, because though this PID is how you know to which process you want to sent the signal
