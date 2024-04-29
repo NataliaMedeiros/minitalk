@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putendl_fd.c                                    :+:    :+:            */
+/*   ft_strcpy.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: natalia <natalia@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/04/09 11:16:35 by natalia       #+#    #+#                 */
-/*   Updated: 2024/04/09 11:19:32 by natalia       ########   odam.nl         */
+/*   Created: 2024/04/09 12:24:41 by natalia       #+#    #+#                 */
+/*   Updated: 2024/04/09 13:23:46 by natalia       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(int fd, char *s)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	int	len;
+	int	i;
 
-	len = ft_strlen(s);
-	write (fd, s, len);
-	write(fd, "\n", 1);
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

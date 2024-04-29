@@ -1,83 +1,49 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: natalia <natalia@student.42.fr>              +#+                      #
-#                                                    +#+                       #
-#    Created: 2023/10/24 17:19:02 by natalia       #+#    #+#                  #
-#    Updated: 2024/04/24 16:33:22 by nmedeiro      ########   odam.nl          #
-#                                                                              #
-# **************************************************************************** #
-
-Library = libft
-Files = ft_isalpha \
-		ft_isascii \
-		ft_isdigit \
-		ft_isprint \
-		ft_strchr \
-		ft_strlcat \
-		ft_strlcpy \
-		ft_strrchr \
-		ft_strlen \
-		ft_memset \
-		ft_bzero \
-		ft_atoi \
-		ft_isalnum \
-		ft_strdup \
-		ft_tolower \
-		ft_toupper \
-		ft_memchr \
-		ft_memcmp \
-		ft_strncmp \
-		ft_strnstr \
-		ft_memcpy \
-		ft_memmove \
-		ft_calloc \
-		ft_substr \
-		ft_strjoin \
-		ft_strtrim \
-		ft_split \
-		ft_itoa \
-		ft_strmapi \
-		ft_striteri \
-		ft_putchar_fd \
-		ft_putstr_fd \
-		ft_putendl_fd \
-		ft_putnbr_fd \
-		ft_printf_utils \
-		ft_printf \
-		ft_puthex \
-		ft_lstnew \
-		ft_lstadd_front \
-		ft_lstsize \
-		ft_lstlast \
-		ft_lstadd_back \
-		ft_lstdelone \
-		ft_lstclear \
-		ft_lstiter \
-		ft_lstmap \
-
-CFILES = $(Files:%=%.c)
-OFILES = $(CFILES:%.c=%.o)
 NAME = libft.a
 
+FILES = ft_atoi.c \
+		ft_bzero.c \
+		ft_calloc.c \
+		ft_itoa.c \
+		ft_putendl_fd.c \
+		ft_putnbr.c \
+		ft_putnbr_nl.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putstr.c \
+		ft_putstr_nl.c \
+		ft_strcat.c \
+		ft_strchr.c \
+		ft_strcmp.c \
+		ft_strcpy.c \
+		ft_strlen.c \
+		ft_strlen_nl.c \
+		get_next_line_utils.c \
+		get_next_line.c \
+		ft_printf.c \
+		ft_printf_utils.c \
+		ft_puthex.c \
+
+OFILES = $(FILES:%.c=%.o)
+
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OFILES)
 	@ar -rc $(NAME) $(OFILES)
+	@echo "Compiled ✅ $^"
 
 clean:
 	@rm -f $(OFILES)
 
 fclean: clean
 	@rm -f $(NAME)
+	@echo
+	@echo "Cleaned my_library ✅"
 
 re: fclean all
 

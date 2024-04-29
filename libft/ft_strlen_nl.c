@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putendl_fd.c                                    :+:    :+:            */
+/*   ft_strlen_nl.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: natalia <natalia@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/04/09 11:16:35 by natalia       #+#    #+#                 */
-/*   Updated: 2024/04/09 11:19:32 by natalia       ########   odam.nl         */
+/*   Created: 2024/04/09 11:02:52 by natalia       #+#    #+#                 */
+/*   Updated: 2024/04/09 15:43:42 by natalia       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(int fd, char *s)
+int	ft_strlen_nl(const char *s)
 {
 	int	len;
 
-	len = ft_strlen(s);
-	write (fd, s, len);
-	write(fd, "\n", 1);
+	len = 0;
+	while (s[len] != '\n')
+		len++;
+	return (len);
 }

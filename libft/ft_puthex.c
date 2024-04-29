@@ -6,7 +6,7 @@
 /*   By: natalia <natalia@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/15 14:11:30 by nmedeiro      #+#    #+#                 */
-/*   Updated: 2024/04/24 16:31:08 by nmedeiro      ########   odam.nl         */
+/*   Updated: 2024/04/29 12:12:06 by natalia       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_puthex(unsigned int n, const char type)
 		return (ft_putchar('0'));
 	else
 	{
-		len = intlen(n, 16);
+		len = intlen_base(n, 16);
 		str_n = ft_calloc(len + 1, sizeof(char));
 		while (n > 0)
 		{
@@ -50,7 +50,7 @@ int	ft_putpointer(unsigned long n)
 		return (ft_putstr("(nil)"));
 	else
 	{
-		len = intlen(n, 16) + 2;
+		len = intlen_base(n, 16) + 2;
 		str_n = ft_calloc(len + 1, sizeof(char));
 		str_n[0] = '0';
 		str_n[1] = 'x';

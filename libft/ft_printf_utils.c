@@ -6,13 +6,13 @@
 /*   By: natalia <natalia@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/15 09:14:40 by nmedeiro      #+#    #+#                 */
-/*   Updated: 2024/04/24 16:30:57 by nmedeiro      ########   odam.nl         */
+/*   Updated: 2024/04/29 12:13:32 by natalia       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	intlen(unsigned long nb, int base)
+int	intlen_base(unsigned long nb, int base)
 {
 	int	len;
 
@@ -31,13 +31,13 @@ int	ft_putchar(int c)
 	return (1);
 }
 
-int	ft_putstr(char *str)
-{
-	if (str == NULL)
-		str = "(null)";
-	ft_putstr_fd(str, FD);
-	return (ft_strlen(str));
-}
+// int	ft_putstr(char *str)
+// {
+// 	if (str == NULL)
+// 		str = "(null)";
+// 	ft_putstr_fd(str, FD);
+// 	return (ft_strlen(str));
+// }
 
 int	ft_putnbr(int nb)
 {
@@ -57,7 +57,7 @@ int	ft_putunsigned(unsigned int n)
 	char			*str_n;
 
 	nb = n;
-	len = intlen(nb, 10);
+	len = intlen_base(nb, 10);
 	if (n == 0)
 		return (ft_putchar('0'));
 	else

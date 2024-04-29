@@ -6,25 +6,36 @@
 #    By: natalia <natalia@student.42.fr>              +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/10/24 17:19:02 by natalia       #+#    #+#                  #
-#    Updated: 2024/04/24 18:26:21 by nmedeiro      ########   odam.nl          #
+#    Updated: 2024/04/29 15:17:08 by natalia       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 LIBFT = libft/libft.a
-FILES = client.c \
-		server.c \
-
-OFILES = $(FILES:%.c=%.o)
 NAME = minitalk
+
+SRC_CLIENT = client.c
+SRC_SERVER = server.c
+SRC_CLIENT_BONUS = client_bonus.c
+SRC_SERVER_BONUS = server_bonus.c
+
+O_CLIENT = $(SRC_CLIENT:%.c=%.o)
+O_SERVER = $(SRC_SERVER:%.c=%.o)
+O_CLIENT_BONUS = $(SRC_CLIENT_BONUS:%.c=%.o)
+O_SERVER_BONUS = $(SRC_SERVER_BONUS:%.c=%.o)
+
+SERVER = server
+CLIENT = client
+SERVER_BONUS = server_bonus
+CLIENT_BONUS = client_bonus
 
 LIBFTDIR = libft
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-all: $(NAME)
+all: client server $(LIBFT)
 
-${NAME}: server client
+bonus: all client_bonus server_bonus $(LIBFT)
 
 $(LIBFT):
 	@echo "Compiling ..."
@@ -32,19 +43,33 @@ $(LIBFT):
 	@echo "Compiled ✅ $(LIBFT)"
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@ -I $(LIBFTDIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-server: server.o $(LIBFT)
-	${CC} ${CFLAGS} server.o $(LIBFT) -o server
+server: $(LIBFT) $(O_SERVER)
+	${CC} ${CFLAGS} $(O_SERVER) $(LIBFT) -o $(SERVER)
 
-client: client.o $(LIBFT)
-	${CC} ${CFLAGS} client.o $(LIBFT) -o client
+client: $(LIBFT) $(O_CLIENT)
+	${CC} ${CFLAGS} $(O_CLIENT) $(LIBFT) -o $(CLIENT)
+
+server_bonus: $(LIBFT) $(O_SERVER_BONUS)
+	${CC} ${CFLAGS} $(O_SERVER_BONUS) $(LIBFT) -o $(SERVER_BONUS)
+
+client_bonus: $(LIBFT) $(O_CLIENT_BONUS)
+	${CC} ${CFLAGS} $(O_CLIENT_BONUS) $(LIBFT) -o $(CLIENT_BONUS)
 
 clean:
-	@rm -f $(OFILES)
+	@cd libft && $(MAKE) clean 1> /dev/null
+	@rm -f $(O_CLIENT)
+	@rm -f $(O_SERVER)
+	@rm -f $(O_CLIENT_BONUS)
+	@rm -f $(O_SERVER_BONUS)
 
 fclean: clean
-	@rm -f $(NAME)
+	@cd libft && $(MAKE) fclean 1> /dev/null
+	@rm -f $(CLIENT)
+	@rm -f $(SERVER)
+	@rm -f $(CLIENT_BONUS)
+	@rm -f $(SERVER_BONUS)
 
 re: fclean all
 

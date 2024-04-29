@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_itoa.c                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: natalia <natalia@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/10/26 08:17:49 by nmedeiro      #+#    #+#                 */
-/*   Updated: 2024/04/24 16:32:28 by nmedeiro      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: natalia <natalia@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/26 08:17:49 by nmedeiro          #+#    #+#             */
+/*   Updated: 2024/04/14 19:44:52 by natalia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_intlen(int n)
+int	intlen(int n)
 {
 	int	len;
 
@@ -34,7 +34,7 @@ char	*ft_itoa(int n)
 	long int	nb;
 
 	nb = n;
-	len = ft_intlen(n);
+	len = intlen(n);
 	new_n = malloc((len + 1) * sizeof(char));
 	if (new_n == NULL)
 		return (NULL);
