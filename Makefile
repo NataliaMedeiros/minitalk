@@ -6,7 +6,7 @@
 #    By: natalia <natalia@student.42.fr>              +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/10/24 17:19:02 by natalia       #+#    #+#                  #
-#    Updated: 2024/04/29 15:17:08 by natalia       ########   odam.nl          #
+#    Updated: 2024/04/30 16:19:48 by natalia       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 all: client server $(LIBFT)
 
-bonus: all client_bonus server_bonus $(LIBFT)
+bonus: client_bonus server_bonus $(LIBFT)
 
 $(LIBFT):
 	@echo "Compiling ..."

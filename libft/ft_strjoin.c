@@ -6,7 +6,7 @@
 /*   By: natalia <natalia@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/26 08:20:03 by nmedeiro      #+#    #+#                 */
-/*   Updated: 2024/04/30 11:14:13 by natalia       ########   odam.nl         */
+/*   Updated: 2024/04/30 15:31:26 by natalia       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (s == NULL)
 		return (NULL);
 	ft_bzero(s, len);
-	ft_strlcat(s, s1, len);
-	ft_strlcat(s, s2, len);
+	ft_strcat(s, s1);
+	ft_strcat(s, s2);
 	return (s);
 }

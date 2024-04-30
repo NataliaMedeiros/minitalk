@@ -6,7 +6,7 @@
 /*   By: natalia <natalia@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 14:53:07 by natalia       #+#    #+#                 */
-/*   Updated: 2024/04/30 14:09:10 by natalia       ########   odam.nl         */
+/*   Updated: 2024/04/30 16:40:24 by natalia       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 /*				This allows the same signal to be received and processed      */
 /*				again while a signal handler is running.                      */
 /* ************************************************************************** */
-
 
 #include "libft/libft.h"
 #include <signal.h>
@@ -57,7 +56,7 @@ int	main(void)
 	sa.sa_sigaction = &signal_handler;
 	if (sigemptyset(&sa.sa_mask) == -1)
 		error_exit("Error: function sigemptyset failled\n");
-	ft_printf("PID: %d\n", getpid());
+	ft_printf("Server PID: %d\n", getpid());
 	if (sigaction(SIGUSR1, &sa, NULL) == -1
 		|| sigaction(SIGUSR2, &sa, NULL) == -1)
 		error_exit("Error: fail on setting up signal handler");

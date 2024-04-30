@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   client_bonus.c                                     :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: natalia <natalia@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2024/04/30 16:39:48 by natalia       #+#    #+#                 */
+/*   Updated: 2024/04/30 16:41:28 by natalia       ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft/libft.h"
 #include <signal.h>
-#define TIMEOUT 5000
 
-int	g_checksignal = 1;
+int	g_checksignal = 0;
 
 void	error_exit(char *message)
 {
@@ -14,8 +25,6 @@ void	sig_confirm(int sig)
 {
 	if (sig == SIGUSR1)
 		g_checksignal = 1;
-	// else if (sig == SIGUSR2)
-	// 	write(STDOUT_FILENO, "Msg received\n", 14);
 }
 
 void	bit_read(int pid_server, int nb)
@@ -48,12 +57,12 @@ int	main(int argc, char **argv)
 	int	i;
 
 	if (argc != 3)
-		error_exit("Missing imput\n");
-	pid_server = ft_atoi(argv[1]);
+		error_exit("Missing PID and/or string, please insert following this structure:\n \
+./client <PID> <message>\n");
+	pid_server = ft_adapted_atoi(argv[1]);
 	if (pid_server <= 0)
-		error_exit("Invalid PID\n");
+		error_exit("Invalid PID:\nThe PID should be a positive integer\n");
 	signal(SIGUSR1, sig_confirm);
-	//signal(SIGUSR2, sig_confirm);
 	i = 0;
 	while (argv[2][i] != '\0')
 	{

@@ -6,7 +6,7 @@
 /*   By: natalia <natalia@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/09 11:03:51 by natalia       #+#    #+#                 */
-/*   Updated: 2024/04/30 11:23:22 by natalia       ########   odam.nl         */
+/*   Updated: 2024/04/30 16:41:09 by natalia       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_vector
 }				t_vector;
 
 int		ft_atoi(const char *nptr);
+int		ft_adapted_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_itoa(int n);
@@ -55,7 +56,6 @@ char	*get_next_line(int fd);
 size_t	find_nl(char *text);
 char	*ft_join_str(char *prev_line, char *text);
 int		ft_strlen_nl(const char *s);
-
 
 int		ft_printf(const	char *format, ...);
 int		ft_puthex(unsigned int n, const char type);

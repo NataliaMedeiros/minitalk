@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   server.c                                           :+:    :+:            */
+/*   ft_adapted_atoi.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: natalia <natalia@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/04/29 13:11:59 by natalia       #+#    #+#                 */
-/*   Updated: 2024/04/30 16:33:51 by natalia       ########   odam.nl         */
+/*   Created: 2023/10/11 18:02:40 by nmedeiro      #+#    #+#                 */
+/*   Updated: 2024/04/30 14:29:05 by natalia       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include <signal.h>
-#include <time.h>
+#include "libft.h"
 
-void	signal_handler(int signum)
+int	ft_adapted_atoi(const char *nptr)
 {
-	static unsigned char	buff;
-	static int				i;
+	int	i;
+	int	number;
 
-	buff |= (signum == SIGUSR1) << i;
-	i++;
-	if (i == 8)
+	i = 0;
+	number = 0;
+	if (nptr[i] == '-')
+		return (-1);
+	if (nptr[i] == '+')
+		return (-2);
+	while (nptr[i] != '\0')
 	{
-		ft_putchar(buff);
-		i = 0;
-		buff = 0;
+		if (nptr[i] >= '0' && nptr[i] <= '9')
+			number = number * 10 + (nptr[i] - '0');
+		else
+			return (-2);
+		i++;
 	}
-}
-
-int	main(void)
-{
-	ft_printf("Server PID: %d\n", getpid());
-	signal(SIGUSR1, signal_handler);
-	signal(SIGUSR2, signal_handler);
-	while (1)
-		pause();
-	return (0);
+	return (number);
 }
