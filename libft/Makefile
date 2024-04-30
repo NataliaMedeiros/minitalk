@@ -22,6 +22,10 @@ FILES = ft_atoi.c \
 		ft_printf.c \
 		ft_printf_utils.c \
 		ft_puthex.c \
+		ft_strdup.c \
+		ft_strjoin.c \
+		ft_strlcat.c \
+
 
 OFILES = $(FILES:%.c=%.o)
 
