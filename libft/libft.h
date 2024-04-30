@@ -6,7 +6,7 @@
 /*   By: natalia <natalia@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/09 11:03:51 by natalia       #+#    #+#                 */
-/*   Updated: 2024/04/30 16:41:09 by natalia       ########   odam.nl         */
+/*   Updated: 2024/04/30 19:42:42 by natalia       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int		ft_putstr_nl(char *str);
 char	*ft_strdup(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
+char	*ft_strcharjoin(char *s1, char s2);
+char	*ft_strcharcat(char *dest, const char src);
 
 char	*get_next_line(int fd);
 size_t	find_nl(char *text);

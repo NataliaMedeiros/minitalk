@@ -26,6 +26,8 @@ FILES = ft_atoi.c \
 		ft_strjoin.c \
 		ft_strlcat.c \
 		ft_adapted_atoi.c \
+		ft_strcharjoin.c \
+		ft_strcharcat.c \
 
 
 OFILES = $(FILES:%.c=%.o)

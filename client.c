@@ -6,7 +6,7 @@
 /*   By: natalia <natalia@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/30 15:25:28 by natalia       #+#    #+#                 */
-/*   Updated: 2024/04/30 16:48:02 by natalia       ########   odam.nl         */
+/*   Updated: 2024/04/30 17:11:19 by natalia       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,8 @@ void	bit_read(int pid_server, int nb)
 {
 	int	count;
 	int	n;
-	int	i;
 
 	count = 0;
-	i = 0;
 	while (count < 8)
 	{
 		n = nb >> count & 1;
