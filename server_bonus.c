@@ -6,7 +6,7 @@
 /*   By: natalia <natalia@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/29 14:53:07 by natalia       #+#    #+#                 */
-/*   Updated: 2024/04/30 16:40:24 by natalia       ########   odam.nl         */
+/*   Updated: 2024/04/30 19:48:45 by natalia       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,20 @@ void	signal_handler(int signum, siginfo_t *info, void *context)
 {
 	static unsigned char	buff;
 	static int				i;
+	static char				*str = NULL;
 
 	(void) context;
 	buff |= (signum == SIGUSR1) << i;
 	i++;
 	if (i == 8)
 	{
-		ft_putchar(buff);
+		str = ft_strcharjoin(str, buff);
+		if (buff == '\0')
+		{
+			ft_putstr(str);
+			free(str);
+			str = NULL;
+		}
 		i = 0;
 		buff = 0;
 	}
