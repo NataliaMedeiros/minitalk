@@ -6,7 +6,7 @@
 /*   By: natalia <natalia@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/30 16:39:48 by natalia       #+#    #+#                 */
-/*   Updated: 2024/04/30 16:41:28 by natalia       ########   odam.nl         */
+/*   Updated: 2024/05/07 12:41:59 by natalia       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	bit_read(int pid_server, int nb)
 	int	count;
 	int	n;
 	int	i;
+	int	kr;
 
 	count = 0;
 	while (count < 8)
@@ -40,9 +41,11 @@ void	bit_read(int pid_server, int nb)
 		i = 0;
 		n = nb >> count & 1;
 		if (n == 1)
-			kill(pid_server, SIGUSR1);
+			kr = kill(pid_server, SIGUSR1);
 		else
-			kill(pid_server, SIGUSR2);
+			kr = kill(pid_server, SIGUSR2);
+		if (kr < 0)
+			error_exit("Invalid PID:");
 		count++;
 		while (i++ < 100000 && g_checksignal == 0)
 			usleep(10);
