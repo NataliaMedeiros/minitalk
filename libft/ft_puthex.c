@@ -6,7 +6,7 @@
 /*   By: natalia <natalia@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/15 14:11:30 by nmedeiro      #+#    #+#                 */
-/*   Updated: 2024/04/29 12:12:06 by natalia       ########   odam.nl         */
+/*   Updated: 2024/05/27 16:31:11 by natalia       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_puthex(unsigned int n, const char type)
 	else if (type == 'X')
 		hex_base = "0123456789ABCDEF";
 	if (n == 0)
-		return (ft_putchar('0'));
+		return (ft_putchar_fd('0', FD), 1);
 	else
 	{
 		len = intlen_base(n, 16);
